@@ -12,6 +12,7 @@ Setup & Installation
 1. Install Raspbian to Raspberry Pi (any version)
 2. Clone this repository onto the Pi
   $  git clone https://github.com/corinnedixon/SmartPepp
+3. Current version is pepperoni.py
 
 Usage & Details
 Code runs with L298N DC Motor Driver, 2 TB6560 Stepper Drivers, 2 NEMA 34 Stepper Motors, and DC Motor.
