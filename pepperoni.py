@@ -164,7 +164,7 @@ def fourteenProgram():
 
 #Function for running pepperoni
 def runPepperoni(size, pepp_time):
-    print("SPEED: " + str(amount*calibration[size]))
+    print("SPEED: " + str(pieces_of_pepp*calibration[size]))
     print("SIZE: " + str(size))
     print("RUNNING PEPPERONI\n")
     
@@ -247,9 +247,7 @@ def stopSpinning():
 
 # Functions for starting and stopping pepperoni slicing
 def sliceProgram(speed):
-    global amount
-
-    # Create new threads
+    # Create new thread
     slice = threading.Thread(target=sliceFunc, args = (speed))
   
     # Start new thread
@@ -276,7 +274,7 @@ def stopSlicing():
 
 # Function that stops everything
 def stopAll():
-    stopPepping()
+    stopSlicing()
     stopSpinning()
     stopMoving()
 
@@ -302,19 +300,19 @@ def setColor(color):
     sevenButton["bg"] = color
 
 def setAmount(amt):
-    global amount, speed
-    if amt == amount or amt == med:
-        amount = med
+    global speed
+    if amt == med:
+        #amount = med
         setColor("lime green")
         light["bg"] = button_color
         extra["bg"] = button_color
     elif amt == lt:
-        amount = lt
+        #amount = lt
         setColor("orange")
         light["bg"] = "orange"
         extra["bg"] = button_color
     elif amt == ext:
-        amount = ext
+        #amount = ext
         setColor("DarkOrange2")
         light["bg"] = button_color
         extra["bg"] = "DarkOrange2"
@@ -641,12 +639,13 @@ stopButton.place(x=220, y=235)
 moreButton  = Button(screen, text = "...", font = stopFont, bg = button_color, fg = main_fg, command = moreScreen, height = 1, width = 3)
 moreButton.place(x=640, y=235)
 
-piece60  = Button(screen, text = "60 PIECEES", font = otherFont, bg = button_color, fg = main_fg, command = lambda: setPieces(60), height = 2, width = 10)
+piece60  = Button(screen, text = "60 PIECES", font = otherFont, bg = button_color, fg = main_fg, command = lambda: setPieces(60), height = 2, width = 10)
 piece60.place(x=15, y=380)
 
 piece100  = Button(screen, text = "100 PIECES", font = otherFont, bg = button_color, fg = main_fg, command = lambda: setPieces(100), height = 2, width = 10)
 piece100.place(x=575, y=380)
 
+# not sure if we need amount buttoons
 light  = Button(screen, text = "LESS\nPEPP", font = otherFont, activebackground = "orange", activeforeground = "white", bg = button_color, fg = main_fg, command = lambda: setAmount(lt), height = 2, width = 6)
 light.place(x=245, y=380)
 
